@@ -103,14 +103,12 @@
 		49726AB5268394CF0025D382 /* Get-up-from-your-chair */ = {
 			isa = PBXGroup;
 			children = (
-				49726AE6268397AB0025D382 /* Models */,
 				49726AB6268394CF0025D382 /* AppDelegate.swift */,
 				49726AB8268394CF0025D382 /* SceneDelegate.swift */,
-				49726ABA268394CF0025D382 /* ViewController.swift */,
-				49726ABC268394CF0025D382 /* Main.storyboard */,
-				49726ABF268394D30025D382 /* Assets.xcassets */,
-				49726AC1268394D30025D382 /* LaunchScreen.storyboard */,
-				49726AC4268394D30025D382 /* Info.plist */,
+				49726AEB2683986D0025D382 /* Controllers */,
+				49726AE6268397AB0025D382 /* Models */,
+				49726AEC2683987F0025D382 /* Resources */,
+				49726AED268398850025D382 /* Views */,
 			);
 			path = "Get-up-from-your-chair";
 			sourceTree = "<group>";
@@ -140,6 +138,32 @@
 				49726AE9268397E30025D382 /* Task.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		49726AEB2683986D0025D382 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				49726ABA268394CF0025D382 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		49726AEC2683987F0025D382 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				49726ABF268394D30025D382 /* Assets.xcassets */,
+				49726AC4268394D30025D382 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		49726AED268398850025D382 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49726ABC268394CF0025D382 /* Main.storyboard */,
+				49726AC1268394D30025D382 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,7 +478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8V4E75DU8;
-				INFOPLIST_FILE = "Get-up-from-your-chair/Info.plist";
+				INFOPLIST_FILE = "Get-up-from-your-chair/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,7 +497,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8V4E75DU8;
-				INFOPLIST_FILE = "Get-up-from-your-chair/Info.plist";
+				INFOPLIST_FILE = "Get-up-from-your-chair/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

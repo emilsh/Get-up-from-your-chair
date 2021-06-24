@@ -19,6 +19,7 @@
 		49726AEA268397E30025D382 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726AE9268397E30025D382 /* Task.swift */; };
 		A557B93326847BFE00BD5D45 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557B93226847BFE00BD5D45 /* MainTabBarController.swift */; };
 		A557B93526847CBE00BD5D45 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */; };
+		A557B937268488A200BD5D45 /* ActivityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557B936268488A200BD5D45 /* ActivityTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		49726AE9268397E30025D382 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		A557B93226847BFE00BD5D45 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		A557B936268488A200BD5D45 /* ActivityTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				49726ABA268394CF0025D382 /* ActivityViewController.swift */,
+				A557B936268488A200BD5D45 /* ActivityTableCell.swift */,
 				A557B93226847BFE00BD5D45 /* MainTabBarController.swift */,
 				A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */,
 			);
@@ -309,6 +312,7 @@
 				49726AE8268397CE0025D382 /* Activity.swift in Sources */,
 				49726AB9268394CF0025D382 /* SceneDelegate.swift in Sources */,
 				A557B93526847CBE00BD5D45 /* StatisticsViewController.swift in Sources */,
+				A557B937268488A200BD5D45 /* ActivityTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Activity {
-  var name: String
-  var image: Data?
-  var description: String
+class Activity: Object {
+  @objc dynamic var name: String
+  @objc dynamic var image: Data?
+  @objc dynamic var activityDescription: String
   
   init(name: String, image: Data?, description: String) {
     self.name = name
     self.image = image
-    self.description = description
+    self.activityDescription = description
   }
 }
 

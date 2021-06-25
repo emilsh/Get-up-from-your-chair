@@ -37,6 +37,10 @@ class RealmService {
     return dailyTasks
   }
   
+  func getLastTask() -> Task? {
+    return realm.objects(Task.self).last
+  }
+  
   func save(_ task: Task) {
     task.id = lastId() + 1
     try! realm.write {

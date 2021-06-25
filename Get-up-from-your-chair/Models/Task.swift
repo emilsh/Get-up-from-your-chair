@@ -10,14 +10,13 @@ import UserNotifications
 import RealmSwift
 
 class Task: Object {
-  var id: Int
-  var activity: Activity
-  var isDone: Bool
-  var startDate: TimeInterval
-  var endDate: TimeInterval
-    
-  init(id: Int, activity: Activity, isDone: Bool, startDate: TimeInterval, endDate: TimeInterval) {
-    self.id = id
+  @objc dynamic var id: Int = -1
+  @objc dynamic var activity: Activity
+  @objc dynamic var isDone: Bool
+  @objc dynamic var startDate: TimeInterval
+  @objc dynamic var endDate: TimeInterval
+  
+  init(activity: Activity, isDone: Bool, startDate: TimeInterval, endDate: TimeInterval) {
     self.activity = activity
     self.isDone = isDone
     self.startDate = startDate

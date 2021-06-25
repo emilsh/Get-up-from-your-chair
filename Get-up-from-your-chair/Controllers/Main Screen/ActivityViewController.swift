@@ -8,6 +8,19 @@
 import UIKit
 
 class ActivityViewController: UIViewController {
+  
+  var isRunning: Bool!
+  var duration: TimeInterval!
+  var dailyTasks: [Task]!
+  let realm = RealmService.shared
+  
+  lazy var formatter: DateFormatter = {
+      let formatter = DateFormatter()
+      formatter.dateStyle = .none
+      formatter.timeStyle = .short
+      formatter.locale = Locale(identifier: "ru_RU")
+      return formatter
+    }()
 
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var buttonBackgroundView: UIView!
@@ -46,7 +59,7 @@ class ActivityViewController: UIViewController {
 extension ActivityViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 4
+    return realm.fetchDailyTasks(for: Date().timeIntervalSince1970).count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,7 +70,7 @@ extension ActivityViewController: UITableViewDataSource {
     }
     let image = UIImage(systemName: "figure.walk")?.pngData()
     let activity = Activity(name: "Отжаться 20 раз", image: image, description: "")
-    let task = Task(activity: activity, isDone: true, startDate: 3424234234, duration: 423442525)
+    let task = Task(activity: activity, isDone: true, startDate: 3424234234, endDate: 423442525)
     
     cell.configure(with: task)
     return cell

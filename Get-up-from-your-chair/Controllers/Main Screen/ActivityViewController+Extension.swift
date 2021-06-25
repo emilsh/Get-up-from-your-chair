@@ -8,27 +8,16 @@
 import UIKit
 
 extension ActivityViewController {
-  var isRunning: Bool!
-  var task: Task?
-  var duration: TimeInterval!
-  var dailyTasks: [Task]!
-  
-  private lazy var formatter: DateFormatter = {
-      let formatter = DateFormatter()
-      formatter.dateStyle = .none
-      formatter.timeStyle = .short
-      formatter.locale = Locale(identifier: "ru_RU")
-      return formatter
-    }()
-
   
   //MARK: Actions
     @IBAction func playButtonTapped(_ sender: Any) {
+      var task = realm.getLastTask()
       if !isRunning {
         let currentActivity = ActivityData.activities[0] // TODO: change to choose activity from cards
         let startDate = Date().timeIntervalSince1970
         let endDate = startDate + duration
         task = Task(activity: currentActivity, isDone: false, startDate: startDate, endDate: endDate)
+        realm.save(task!)
         task?.scheduleNotification()
         
         nextNotificationLabel.text = getHoursMinutes(from: endDate)

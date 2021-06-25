@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		223D758D9F17173308ED1352 /* Pods_Get_up_from_your_chair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE1747B193DD87CF56EAB21 /* Pods_Get_up_from_your_chair.framework */; };
+		496F849E2686412400105EF1 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496F849D2686412400105EF1 /* RealmService.swift */; };
+		496F84A1268655D800105EF1 /* ActivityViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496F84A0268655D800105EF1 /* ActivityViewController+Extension.swift */; };
 		49726AB7268394CF0025D382 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726AB6268394CF0025D382 /* AppDelegate.swift */; };
 		49726AB9268394CF0025D382 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726AB8268394CF0025D382 /* SceneDelegate.swift */; };
 		49726ABB268394CF0025D382 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726ABA268394CF0025D382 /* ActivityViewController.swift */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		241EF6E7020155EF55AFE448 /* Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.release.xcconfig"; path = "Target Support Files/Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests/Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3DA1569BA270CA8CABC1ED75 /* Pods-Get-up-from-your-chair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-up-from-your-chair.release.xcconfig"; path = "Target Support Files/Pods-Get-up-from-your-chair/Pods-Get-up-from-your-chair.release.xcconfig"; sourceTree = "<group>"; };
+		496F849D2686412400105EF1 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		496F84A0268655D800105EF1 /* ActivityViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityViewController+Extension.swift"; sourceTree = "<group>"; };
 		49726AB3268394CF0025D382 /* Get-up-from-your-chair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get-up-from-your-chair.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49726AB6268394CF0025D382 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49726AB8268394CF0025D382 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,8 +117,15 @@
 				CAEE05146EEA76A871640BE0 /* Pods-Get-up-from-your-chairTests.debug.xcconfig */,
 				99D3D70806FFB0E3D648020D /* Pods-Get-up-from-your-chairTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		496F849F26864DF400105EF1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				496F849D2686412400105EF1 /* RealmService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		49726AAA268394CF0025D382 = {
@@ -142,6 +153,7 @@
 		49726AB5268394CF0025D382 /* Get-up-from-your-chair */ = {
 			isa = PBXGroup;
 			children = (
+				496F849F26864DF400105EF1 /* Services */,
 				49726AB6268394CF0025D382 /* AppDelegate.swift */,
 				49726AB8268394CF0025D382 /* SceneDelegate.swift */,
 				49726AEB2683986D0025D382 /* Controllers */,
@@ -239,6 +251,7 @@
 				49726ABA268394CF0025D382 /* ActivityViewController.swift */,
 				A557B936268488A200BD5D45 /* ActivityTableCell.swift */,
 				A53773722685D32C009FD49A /* ActivityCollectionCell.swift */,
+				496F84A0268655D800105EF1 /* ActivityViewController+Extension.swift */,
 			);
 			path = "Main Screen";
 			sourceTree = "<group>";
@@ -482,10 +495,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				49726ABB268394CF0025D382 /* ActivityViewController.swift in Sources */,
+				496F84A1268655D800105EF1 /* ActivityViewController+Extension.swift in Sources */,
 				49726AB7268394CF0025D382 /* AppDelegate.swift in Sources */,
 				A557B93326847BFE00BD5D45 /* MainTabBarController.swift in Sources */,
 				49726AEA268397E30025D382 /* Task.swift in Sources */,
 				49726AE8268397CE0025D382 /* Activity.swift in Sources */,
+				496F849E2686412400105EF1 /* RealmService.swift in Sources */,
 				49726AB9268394CF0025D382 /* SceneDelegate.swift in Sources */,
 				A53773732685D32C009FD49A /* ActivityCollectionCell.swift in Sources */,
 				A557B93526847CBE00BD5D45 /* StatisticsViewController.swift in Sources */,

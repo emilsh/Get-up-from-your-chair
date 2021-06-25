@@ -10,7 +10,10 @@ import UIKit
 class ActivityViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
-
+  @IBOutlet weak var buttonBackgroundView: UIView!
+  @IBOutlet weak var playPauseButton: UIButton!
+  @IBOutlet weak var nextNotificationLabel: UILabel!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -50,4 +53,40 @@ extension ActivityViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 72
   }
+}
+
+// MARK: - Collection DataSource
+extension ActivityViewController: UICollectionViewDataSource {
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    numberOfItemsInSection section: Int) -> Int {
+    
+    return 2
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ActivityCollectionCell.reuseIdentifer,
+            for: indexPath) as? ActivityCollectionCell else {
+      fatalError("can't dequeue ActivityCollectionCell")
+    }
+    
+    return cell
+  }
+  
+  
+}
+
+// MARK: - Collection Delegate
+extension ActivityViewController: UICollectionViewDelegate {
+  
+}
+
+// MARK: - Flow Layout
+extension ActivityViewController: UICollectionViewDelegateFlowLayout {
+  
 }

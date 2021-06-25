@@ -7,14 +7,17 @@
 
 import Foundation
 import UserNotifications
+import RealmSwift
 
-class Task {
+class Task: Object {
+  var id: Int
   var activity: Activity
   var isDone: Bool
   var startDate: TimeInterval
   var endDate: TimeInterval
     
-  init(activity: Activity, isDone: Bool, startDate: TimeInterval, endDate: TimeInterval) {
+  init(id: Int, activity: Activity, isDone: Bool, startDate: TimeInterval, endDate: TimeInterval) {
+    self.id = id
     self.activity = activity
     self.isDone = isDone
     self.startDate = startDate

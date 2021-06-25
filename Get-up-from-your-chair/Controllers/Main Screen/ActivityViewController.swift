@@ -57,7 +57,7 @@ extension ActivityViewController: UITableViewDataSource {
     }
     let image = UIImage(systemName: "figure.walk")?.pngData()
     let activity = Activity(name: "Отжаться 20 раз", image: image, description: "")
-    let task = Task(activity: activity, isDone: true, date: 3424234234, duration: 423442525)
+    let task = Task(activity: activity, isDone: true, startDate: 3424234234, duration: 423442525)
     
     cell.configure(with: task)
     return cell

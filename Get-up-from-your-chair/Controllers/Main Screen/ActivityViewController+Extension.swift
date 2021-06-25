@@ -8,6 +8,46 @@
 import UIKit
 
 extension ActivityViewController {
+  var isRunning: Bool!
+  var task: Task?
+  var duration: TimeInterval!
+  var dailyTasks: [Task]!
   
+  private lazy var formatter: DateFormatter = {
+      let formatter = DateFormatter()
+      formatter.dateStyle = .none
+      formatter.timeStyle = .short
+      formatter.locale = Locale(identifier: "ru_RU")
+      return formatter
+    }()
+
+  
+  //MARK: Actions
+    @IBAction func playButtonTapped(_ sender: Any) {
+      if !isRunning {
+        let currentActivity = ActivityData.activities[0] // TODO: change to choose activity from cards
+        let startDate = Date().timeIntervalSince1970
+        let endDate = startDate + duration
+        task = Task(activity: currentActivity, isDone: false, startDate: startDate, endDate: endDate)
+        task?.scheduleNotification()
+        
+        nextNotificationLabel.text = getHoursMinutes(from: endDate)
+        playPauseButton.setImage(UIImage(systemName: ""), for: .normal) // TODO: UIImage(systemName:) change argument to "pause image"
+        isRunning = !isRunning
+      } else {
+        task?.removeNotification()
+        
+        playPauseButton.setImage(UIImage(systemName: ""), for: .normal) // TODO: UIImage(systemName:) change argument to "play image"
+        isRunning = !isRunning
+      }
+    }
+  
+  //MARK: - Helper methods
+  func getHoursMinutes(from date: TimeInterval) -> String {
+    let date = Date(timeIntervalSince1970: date)
+    return formatter.string(from: date)
+  }
+
+
 }
 

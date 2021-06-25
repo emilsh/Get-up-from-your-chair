@@ -14,4 +14,19 @@ class ActivityCollectionCell: UICollectionViewCell {
   @IBOutlet weak var activityImageView: UIImageView!
   @IBOutlet weak var activityNameLabel: UILabel!
   @IBOutlet weak var activityDescriptionLabel: UILabel!
+  
+  func setupUI() {
+    layer.cornerRadius = 25
+    
+    timeIntervalButton.layer.shadowColor = UIColor.black.cgColor
+    timeIntervalButton.layer.shadowOpacity = 0.5
+    timeIntervalButton.layer.shadowOffset = .zero
+    timeIntervalButton.layer.shadowRadius = 5
+    
+    timeIntervalButton.layer.cornerRadius = 10
+    timeIntervalButton.layer.shadowPath = UIBezierPath(
+      roundedRect: timeIntervalButton.bounds,
+      cornerRadius: timeIntervalButton.layer.cornerRadius).cgPath
+    
+  }
 }

@@ -14,8 +14,31 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var playPauseButton: UIButton!
   @IBOutlet weak var nextNotificationLabel: UILabel!
   
+  private var sectionInsets: UIEdgeInsets = {
+    let spacing: CGFloat = 20
+    let sectionInsets = UIEdgeInsets(
+      top:    spacing,
+      left:   spacing,
+      bottom: spacing,
+      right:  spacing)
+    return sectionInsets
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupUI()
+  }
+  
+  private func setupUI() {
+    buttonBackgroundView.backgroundColor = .white
+    buttonBackgroundView.layer.shadowColor = UIColor.black.cgColor
+    buttonBackgroundView.layer.shadowOpacity = 0.5
+    buttonBackgroundView.layer.shadowOffset = .zero
+    buttonBackgroundView.layer.shadowRadius = 5
+    buttonBackgroundView.layer.cornerRadius = 15
+    buttonBackgroundView.layer.shadowPath = UIBezierPath(
+      roundedRect: buttonBackgroundView.bounds,
+      cornerRadius: buttonBackgroundView.layer.cornerRadius).cgPath
   }
 }
 
@@ -74,7 +97,7 @@ extension ActivityViewController: UICollectionViewDataSource {
             for: indexPath) as? ActivityCollectionCell else {
       fatalError("can't dequeue ActivityCollectionCell")
     }
-    
+    cell.setupUI()
     return cell
   }
   
@@ -88,5 +111,30 @@ extension ActivityViewController: UICollectionViewDelegate {
 
 // MARK: - Flow Layout
 extension ActivityViewController: UICollectionViewDelegateFlowLayout {
-  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+    let paddingSpace = sectionInsets.left * 2
+    let availableWidth = view.frame.width - paddingSpace
+    let heightPerItem: CGFloat = 350
+    return CGSize(width: availableWidth, height: heightPerItem)
+  }
+
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    insetForSectionAt section: Int) -> UIEdgeInsets {
+
+    return sectionInsets
+  }
+
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+
+    return sectionInsets.left
+  }
 }

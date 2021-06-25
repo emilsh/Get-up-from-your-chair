@@ -151,11 +151,9 @@
 		49726AEB2683986D0025D382 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A557B93226847BFE00BD5D45 /* MainTabBarController.swift */,
-				49726ABA268394CF0025D382 /* ActivityViewController.swift */,
-				A557B936268488A200BD5D45 /* ActivityTableCell.swift */,
-				A53773722685D32C009FD49A /* ActivityCollectionCell.swift */,
-				A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */,
+				A53773742685D9A9009FD49A /* Tab Bar */,
+				A53773762685D9C4009FD49A /* Main Screen */,
+				A53773752685D9B3009FD49A /* Statistic screen */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,6 +174,32 @@
 				49726AC1268394D30025D382 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A53773742685D9A9009FD49A /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				A557B93226847BFE00BD5D45 /* MainTabBarController.swift */,
+			);
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		A53773752685D9B3009FD49A /* Statistic screen */ = {
+			isa = PBXGroup;
+			children = (
+				A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */,
+			);
+			path = "Statistic screen";
+			sourceTree = "<group>";
+		};
+		A53773762685D9C4009FD49A /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				49726ABA268394CF0025D382 /* ActivityViewController.swift */,
+				A557B936268488A200BD5D45 /* ActivityTableCell.swift */,
+				A53773722685D32C009FD49A /* ActivityCollectionCell.swift */,
+			);
+			path = "Main Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

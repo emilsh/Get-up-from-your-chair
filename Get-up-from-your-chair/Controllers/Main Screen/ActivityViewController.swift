@@ -118,7 +118,7 @@ extension ActivityViewController: UICollectionViewDelegateFlowLayout {
 
     let paddingSpace = sectionInsets.left * 2
     let availableWidth = view.frame.width - paddingSpace
-    let heightPerItem: CGFloat = 350
+    let heightPerItem: CGFloat = 300
     return CGSize(width: availableWidth, height: heightPerItem)
   }
 

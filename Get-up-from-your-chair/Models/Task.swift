@@ -9,18 +9,16 @@ import Foundation
 import UserNotifications
 
 class Task {
-  var activity: Activity // какая именно активность
-  var isDone: Bool // выполнена или нет
-  var date: TimeInterval // дата старта задачи – дата и время
-  var duration: TimeInterval
+  var activity: Activity
+  var isDone: Bool
+  var startDate: TimeInterval
+  var endDate: TimeInterval
   
-  //var user: User // Если решим показывать рейтинг между пользователями
-  
-  init(activity: Activity, isDone: Bool, date: TimeInterval, duration: TimeInterval) {
+  init(activity: Activity, isDone: Bool, startDate: TimeInterval, endDate: TimeInterval) {
     self.activity = activity
     self.isDone = isDone
-    self.date = date
-    self.duration = duration
+    self.startDate = startDate
+    self.endDate = endDate
   }
   
   
@@ -31,11 +29,9 @@ class Task {
     content.title = "Встань уже со стула"
     content.body = activity.name
     content.sound = UNNotificationSound.default
-    
+    let duration = endDate - startDate
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: duration, repeats: true)
-    
     let request = UNNotificationRequest(identifier: "TaskActivity", content: content, trigger: trigger)
-    
     let center = UNUserNotificationCenter.current()
     center.add(request)
   }

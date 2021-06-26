@@ -13,12 +13,14 @@ extension ActivityViewController {
     @IBAction func playButtonTapped(_ sender: Any) {
       if !isRunning {
         isRunning = !isRunning
+        storeApplicationState(isRunning)
         let task = createNewTask()
         updatePlayButtonImage()
         updateNextNotificationLabel(with: task.endDate)
 //        playPauseLabel.text = "Продолжить"
       } else {
         isRunning = !isRunning
+        storeApplicationState(isRunning)
         removeLastTask()
         updatePlayButtonImage()
 //        playPauseLabel.text = "Остановить"
@@ -49,11 +51,12 @@ extension ActivityViewController {
       isRunning = false
       return
     }
-    isRunning = task.endDate > Date().timeIntervalSince1970 ? true : false
+//    isRunning = task.endDate > Date().timeIntervalSince1970 ? true : false
+    isRunning = getApplicationState()
     updatePlayButtonImage()
     updateNextNotificationLabel(with: task.endDate)
     
-    dailyTasks = realm.fetchDailyTasks(for: Date().timeIntervalSince1970)
+//    dailyTasks = realm.fetchDailyTasks(for: Date().timeIntervalSince1970)
   }
   
   func createNewTask() -> Task {
@@ -63,7 +66,9 @@ extension ActivityViewController {
     let task = Task(activity: currentActivity, isDone: false, startDate: startDate, endDate: endDate)
     realm.save(task)
     task.scheduleNotification()
-//    updateNextNotificationLabel(with: endDate)
+    updateNextNotificationLabel(with: endDate)
+    let indexPath = IndexPath(row: 0, section: 0)
+    tableView.insertRows(at: [indexPath], with: .bottom)
     return task
   }
   
@@ -74,5 +79,19 @@ extension ActivityViewController {
     realm.removeTask(task)
     task.removeNotification()
     updateNextNotificationLabel(with: 0)
+    let indexPath = IndexPath(row: 0, section: 0)
+    tableView.deleteRows(at: [indexPath], with: .bottom)
+    
+  }
+}
+
+//MARK: - Notifications
+extension ActivityViewController: UNUserNotificationCenterDelegate {
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    let _ = createNewTask()
+  }
+  
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    let _ = createNewTask()
   }
 }

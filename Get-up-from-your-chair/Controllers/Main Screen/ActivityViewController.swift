@@ -18,7 +18,13 @@ class ActivityViewController: UIViewController {
       storeDuration(newValue)
     }
   }
-  var dailyTasks: [Task]!
+  var dailyTasks: [Task]! {
+    get {
+      realm.fetchDailyTasks(for: Date().timeIntervalSince1970).sorted { task1, task2 in
+        task1.endDate > task2.endDate
+      }
+    }
+  }
   let realm = RealmService.shared
   
   lazy var formatter: DateFormatter = {
@@ -50,6 +56,12 @@ class ActivityViewController: UIViewController {
     super.viewDidLoad()
     setupUI()
     registerDefaultDuration()
+    
+    UNUserNotificationCenter.current().delegate = self
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     updateUI()
   }
   
@@ -70,7 +82,10 @@ class ActivityViewController: UIViewController {
 extension ActivityViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return realm.fetchDailyTasks(for: Date().timeIntervalSince1970).count
+    guard let dailyTasks =  dailyTasks else {
+      return 0
+    }
+    return dailyTasks.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,9 +94,10 @@ extension ActivityViewController: UITableViewDataSource {
             for: indexPath) as? ActivityTableCell else {
       fatalError("custom table view cell error")
     }
-    let image = UIImage(systemName: "figure.walk")?.pngData()
-    let activity = Activity(name: "Отжаться 20 раз", image: image, description: "")
-    let task = Task(activity: activity, isDone: true, startDate: 3424234234, endDate: 423442525)
+//    let image = UIImage(systemName: "figure.walk")?.pngData()
+//    let activity = Activity(name: "Отжаться 20 раз", image: image, description: "")
+//    let activity = dailyTasks[indexPath.row].activity
+    let task = dailyTasks[indexPath.row]
     
     cell.configure(with: task)
     return cell
@@ -95,6 +111,9 @@ extension ActivityViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    let task = dailyTasks[indexPath.row]
+    realm.toggleState(for: task)
+    tableView.reloadRows(at: [indexPath], with: .automatic)
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -105,9 +124,10 @@ extension ActivityViewController: UITableViewDelegate {
     _ tableView: UITableView,
     trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
   ) -> UISwipeActionsConfiguration? {
-    
+    let task = dailyTasks[indexPath.row]
     let isDoneAction = UIContextualAction(style: .normal, title: "Сделано") { (_, _, _) in
       // TODO: логика обновления данных по конкретной задаче
+      self.realm.markTaskDone(task)
       tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
@@ -121,9 +141,10 @@ extension ActivityViewController: UITableViewDelegate {
     _ tableView: UITableView,
     leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath
   ) -> UISwipeActionsConfiguration? {
-    
+    let task = dailyTasks[indexPath.row]
     let isNotDoneAction = UIContextualAction(style: .normal, title: "Пропустить") { (_, _, _) in
       // TODO: логика обновления данных по конкретной задаче
+      self.realm.markTaskUnDone(task)
       tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
@@ -167,7 +188,7 @@ extension ActivityViewController: UICollectionViewDataSource {
     _ collectionView: UICollectionView,
     numberOfItemsInSection section: Int) -> Int {
     
-    return 2
+    return ActivityData.activities.count
   }
   
   func collectionView(
@@ -179,8 +200,10 @@ extension ActivityViewController: UICollectionViewDataSource {
             for: indexPath) as? ActivityCollectionCell else {
       fatalError("can't dequeue ActivityCollectionCell")
     }
+    let activity = ActivityData.activities[indexPath.item]
     cell.setupUI()
     cell.setButtonInteraction()
+    cell.configure(with: activity)
     return cell
   }
   

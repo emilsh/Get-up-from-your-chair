@@ -48,6 +48,24 @@ class RealmService {
     }
   }
   
+  func toggleState(for task: Task) {
+    try! realm.write {
+      task.isDone = !task.isDone
+    }
+  }
+  
+  func markTaskDone(_ task: Task) {
+    try! realm.write {
+      task.isDone = true
+    }
+  }
+  
+  func markTaskUnDone(_ task: Task) {
+    try! realm.write {
+      task.isDone = false
+    }
+  }
+  
   func removeTask(_ task: Task) {
     try! realm.write {
       realm.delete(task)

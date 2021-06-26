@@ -8,13 +8,21 @@
 import Foundation
 
 func storeDuration(_ duration: TimeInterval) {
-  UserDefaults.standard.setValue(duration, forKey: "TimeDuration")
+  UserDefaults.standard.setValue(duration, forKey: "GetUpFromYourChairTimeDuration")
 }
 
 func getDuration() -> TimeInterval {
-  UserDefaults.standard.double(forKey: "TimeDuration")
+  UserDefaults.standard.double(forKey: "GetUpFromYourChairTimeDuration")
 }
 
 func registerDefaultDuration() {
-  UserDefaults.standard.register(defaults: ["TimeDuration": 120])
+  UserDefaults.standard.register(defaults: ["GetUpFromYourChairTimeDuration": 60])
+}
+
+func storeApplicationState(_ state: Bool) {
+  UserDefaults.standard.setValue(state, forKey: "GetUpFromYourChairAppState")
+}
+
+func getApplicationState() -> Bool {
+  UserDefaults.standard.bool(forKey: "GetUpFromYourChairAppState")
 }

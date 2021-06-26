@@ -39,7 +39,8 @@ class ActivityTableCell: UITableViewCell {
       doneImage.image = UIImage(systemName: "circle")
       doneLabel.text = ""
     }
-    let taskDate = Date().addingTimeInterval(task.endDate)
+//    let taskDate = Date().addingTimeInterval(task.endDate)
+    let taskDate = Date(timeIntervalSince1970: task.endDate)
     activityDateLabel.text = formatter.string(from: taskDate)
   }
 }

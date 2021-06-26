@@ -80,6 +80,15 @@ class ActivityCollectionCell: UICollectionViewCell {
 //    timeIntervalButton.showsMenuAsPrimaryAction = true
   }
   
+  func configure(with activity: Activity) {
+    if let dataImage = activity.image {
+      activityImageView.image = UIImage(data: dataImage)
+    }
+    
+    activityNameLabel.text = activity.name
+    activityDescriptionLabel.text = activity.activityDescription
+  }
+  
 }
 
 extension ActivityCollectionCell: UIContextMenuInteractionDelegate {

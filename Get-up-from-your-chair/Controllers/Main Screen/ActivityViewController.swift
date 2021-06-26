@@ -97,6 +97,38 @@ extension ActivityViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 54
   }
+  
+  func tableView(
+    _ tableView: UITableView,
+    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+  ) -> UISwipeActionsConfiguration? {
+    
+    let isDoneAction = UIContextualAction(style: .normal, title: "Сделано") { (_, _, _) in
+      // TODO: логика обновления данных по конкретной задаче
+      tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    isDoneAction.backgroundColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
+    let configuration = UISwipeActionsConfiguration(actions: [isDoneAction])
+    configuration.performsFirstActionWithFullSwipe = true
+    return configuration
+  }
+  
+  func tableView(
+    _ tableView: UITableView,
+    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+  ) -> UISwipeActionsConfiguration? {
+    
+    let isNotDoneAction = UIContextualAction(style: .normal, title: "Пропустить") { (_, _, _) in
+      // TODO: логика обновления данных по конкретной задаче
+      tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    isNotDoneAction.backgroundColor = #colorLiteral(red: 0.370555222, green: 0.3705646992, blue: 0.3705595732, alpha: 1)
+    let configuration = UISwipeActionsConfiguration(actions: [isNotDoneAction])
+    configuration.performsFirstActionWithFullSwipe = true
+    return configuration
+  }
 }
 
 // MARK: - Collection DataSource

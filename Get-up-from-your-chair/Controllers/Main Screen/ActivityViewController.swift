@@ -129,6 +129,32 @@ extension ActivityViewController: UITableViewDelegate {
     configuration.performsFirstActionWithFullSwipe = true
     return configuration
   }
+  
+  // MARK: - оно нам надо или нет?
+  func tableView(
+    _ tableView: UITableView,
+    contextMenuConfigurationForRowAt indexPath: IndexPath,
+    point: CGPoint) -> UIContextMenuConfiguration? {
+    
+    let actionTitle = "Отметить пропущенным" // title = task.isDone ? "Пропустить" : "Отметить"
+    let image = UIImage(systemName: "checkmark.circle") // = task.isDone ? "circle" : "checkmark.circle"
+    let taskTitle = "Отжаться 20 раз"
+    
+    let configuaration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { element in
+      let action = UIAction(
+        title: actionTitle,
+        image: image,
+        identifier: .none,
+        discoverabilityTitle: nil,
+        attributes: [], state: .off) { action in
+        // TODO: .toggle() isDone
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+      }
+      return UIMenu.init(title: taskTitle, options: [], children: [action])
+    }
+    return configuaration
+  }
+
 }
 
 // MARK: - Collection DataSource

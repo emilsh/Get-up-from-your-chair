@@ -48,6 +48,7 @@ class ActivityViewController: UIViewController {
     super.viewDidLoad()
     setupUI()
     registerDefaultDuration()
+    updateUI()
   }
   
   private func setupUI() {

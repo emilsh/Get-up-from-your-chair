@@ -16,12 +16,12 @@ extension ActivityViewController {
         let task = createNewTask()
         updatePlayButtonImage()
         updateNextNotificationLabel(with: task.endDate)
-        playPauseLabel.text = "Продолжить"
+//        playPauseLabel.text = "Продолжить"
       } else {
         isRunning = !isRunning
         removeLastTask()
         updatePlayButtonImage()
-        playPauseLabel.text = "Остановить"
+//        playPauseLabel.text = "Остановить"
       }
     }
   
@@ -33,11 +33,15 @@ extension ActivityViewController {
   
   func updatePlayButtonImage() {
     let imageName = isRunning ? "pause.fill" : "play.fill"
+    playPauseLabel.text = isRunning ? "Остановить" : "Продолжить"
     playPauseButton.setImage(UIImage(systemName: imageName), for: .normal)
   }
   
   func updateNextNotificationLabel(with endDate: TimeInterval) {
-    nextNotificationLabel.text = isRunning ? getHoursMinutes(from: endDate) : ""
+    nextNotificationLabel.text = isRunning ? getHoursMinutes(from: endDate) : "остановлены"
+    nextNotificationTextLabel.text = isRunning ? "Следующее:" : "Уведомления"
+    nextNotificationLabel.textColor = isRunning ? .black : .gray
+    nextNotificationTextLabel.textColor = isRunning ? .black : .gray
   }
   
   func updateUI() {

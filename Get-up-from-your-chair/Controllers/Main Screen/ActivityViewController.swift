@@ -34,6 +34,7 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var playPauseButton: UIButton!
   @IBOutlet weak var playPauseLabel: UILabel!
   @IBOutlet weak var nextNotificationLabel: UILabel!
+  @IBOutlet weak var nextNotificationTextLabel: UILabel!
   
   private var sectionInsets: UIEdgeInsets = {
     let spacing: CGFloat = 20

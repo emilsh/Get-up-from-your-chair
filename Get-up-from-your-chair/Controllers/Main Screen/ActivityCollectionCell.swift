@@ -29,4 +29,105 @@ class ActivityCollectionCell: UICollectionViewCell {
       cornerRadius: timeIntervalButton.layer.cornerRadius).cgPath
     
   }
+  
+  func setButtonInteraction() {
+    let interaction = UIContextMenuInteraction(delegate: self)
+    timeIntervalButton.addInteraction(interaction)
+//    timeIntervalButton.showsMenuAsPrimaryAction = true
+  }
+  
+  @IBAction func timeIntervalButtonPressed() {
+    
+//    let fifteenImage = UIImage(systemName: "goforward.15")
+//    let setMinutes15 = UIAction(
+//      title: "Каждые 15 мин",
+//      image: fifteenImage,
+//      identifier: .none,
+//      state: .off) { action in
+//      // TODO: set timeInterval
+//    }
+//
+//    let thirtyImage = UIImage(systemName: "goforward.30")
+//    let setMinutes30 = UIAction(
+//      title: "Каждые 30 мин",
+//      image: thirtyImage,
+//      identifier: .none,
+//      state: .on) { action in
+//      // TODO: set timeInterval
+//    }
+//
+//    let sixtyImage = UIImage(systemName: "goforward.60")
+//    let setMinutes60 = UIAction(
+//      title: "Каждые 60 мин",
+//      image: sixtyImage,
+//      identifier: .none,
+//      state: .off) { action in
+//      // TODO: set timeInterval
+//    }
+//
+//    let ninetyImage = UIImage(systemName: "goforward.15")
+//    let setMinutes90 = UIAction(
+//      title: "Каждые 90 мин",
+//      image: ninetyImage,
+//      identifier: .none,
+//      state: .off) { action in
+//      // TODO: set timeInterval
+//    }
+//
+//    timeIntervalButton.menu = UIMenu(
+//      title: "Интервал уведомлений",
+//      children: [setMinutes15, setMinutes30, setMinutes60, setMinutes90])
+//    timeIntervalButton.showsMenuAsPrimaryAction = true
+  }
+  
+}
+
+extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
+  func contextMenuInteraction(
+    _ interaction: UIContextMenuInteraction,
+    configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        
+    let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { actions in
+      
+      let fifteenImage = UIImage(systemName: "goforward.15")
+      let setMinutes15 = UIAction(
+        title: "Каждые 15 мин",
+        image: fifteenImage,
+        identifier: .none,
+        state: .off) { action in
+        // TODO: set timeInterval
+      }
+      
+      let thirtyImage = UIImage(systemName: "goforward.30")
+      let setMinutes30 = UIAction(
+        title: "Каждые 30 мин",
+        image: thirtyImage,
+        identifier: .none,
+        state: .on) { action in
+        // TODO: set timeInterval
+      }
+      
+      let sixtyImage = UIImage(systemName: "goforward.60")
+      let setMinutes60 = UIAction(
+        title: "Каждые 60 мин",
+        image: sixtyImage,
+        identifier: .none,
+        state: .off) { action in
+        // TODO: set timeInterval
+      }
+      
+      let ninetyImage = UIImage(systemName: "goforward.15")
+      let setMinutes90 = UIAction(
+        title: "Каждые 90 мин",
+        image: ninetyImage,
+        identifier: .none,
+        state: .off) { action in
+        // TODO: set timeInterval
+      }
+      
+      return UIMenu(title: "", options: [], children: [setMinutes15, setMinutes30, setMinutes60, setMinutes90])
+    }
+    return configuration
+    
+  }
 }

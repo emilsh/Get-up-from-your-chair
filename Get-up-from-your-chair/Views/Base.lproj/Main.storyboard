@@ -176,6 +176,9 @@
                                                     <state key="normal">
                                                         <imageReference key="image" image="goforward.30" catalog="system" symbolScale="large"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="timeIntervalButtonPressed" destination="c7M-Xb-9Vr" eventType="touchUpInside" id="WdM-DG-HP3"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="figure.walk" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NhC-zQ-256">
                                                     <rect key="frame" x="20" y="18.5" width="50" height="51.5"/>

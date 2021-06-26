@@ -178,6 +178,7 @@ extension ActivityViewController: UICollectionViewDataSource {
       fatalError("can't dequeue ActivityCollectionCell")
     }
     cell.setupUI()
+    cell.setButtonInteraction()
     return cell
   }
   

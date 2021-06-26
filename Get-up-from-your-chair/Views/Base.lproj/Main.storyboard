@@ -256,6 +256,7 @@
                         <outlet property="buttonBackgroundView" destination="7pP-ib-x9e" id="qWa-j3-X4W"/>
                         <outlet property="nextNotificationLabel" destination="KUJ-y7-wP5" id="bc7-dm-6Xr"/>
                         <outlet property="playPauseButton" destination="b4S-uW-nQE" id="00F-a3-4PW"/>
+                        <outlet property="playPauseLabel" destination="paW-5B-yrH" id="rVb-Kq-Ckb"/>
                         <outlet property="tableView" destination="NRa-En-CPQ" id="2Qi-pP-1fu"/>
                     </connections>
                 </viewController>

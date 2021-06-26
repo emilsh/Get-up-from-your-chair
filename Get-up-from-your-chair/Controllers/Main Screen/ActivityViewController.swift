@@ -32,6 +32,7 @@ class ActivityViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var buttonBackgroundView: UIView!
   @IBOutlet weak var playPauseButton: UIButton!
+  @IBOutlet weak var playPauseLabel: UILabel!
   @IBOutlet weak var nextNotificationLabel: UILabel!
   
   private var sectionInsets: UIEdgeInsets = {

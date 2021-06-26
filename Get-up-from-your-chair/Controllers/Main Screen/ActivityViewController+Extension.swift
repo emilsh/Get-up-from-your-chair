@@ -16,10 +16,12 @@ extension ActivityViewController {
         let task = createNewTask()
         updatePlayButtonImage()
         updateNextNotificationLabel(with: task.endDate)
+        playPauseLabel.text = "Продолжить"
       } else {
         isRunning = !isRunning
         removeLastTask()
         updatePlayButtonImage()
+        playPauseLabel.text = "Остановить"
       }
     }
   

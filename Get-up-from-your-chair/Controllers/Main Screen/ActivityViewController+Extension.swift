@@ -11,28 +11,15 @@ extension ActivityViewController {
   
   //MARK: Actions
     @IBAction func playButtonTapped(_ sender: Any) {
-      var task = realm.getLastTask()
       if !isRunning {
-        let currentActivity = ActivityData.activities[0] // TODO: change to choose activity from cards
-        let startDate = Date().timeIntervalSince1970
-        let endDate = startDate + duration
-        task = Task(activity: currentActivity, isDone: false, startDate: startDate, endDate: endDate)
-        realm.save(task!)
-        task?.scheduleNotification()
-        
-        nextNotificationLabel.text = getHoursMinutes(from: endDate)
-        playPauseButton.setImage(UIImage(systemName: "stop.fill"), for: .normal)
         isRunning = !isRunning
+        let task = createNewTask()
+        updatePlayButtonImage()
+        updateNextNotificationLabel(with: task.endDate)
       } else {
-        guard let task = task else {
-          fatalError("Cannot get last task")
-        }
-        realm.removeTask(task)
-        task.removeNotification()
-        
-        nextNotificationLabel.text = ""
-        playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         isRunning = !isRunning
+        removeLastTask()
+        updatePlayButtonImage()
       }
     }
   
@@ -41,7 +28,45 @@ extension ActivityViewController {
     let date = Date(timeIntervalSince1970: date)
     return formatter.string(from: date)
   }
-
-
+  
+  func updatePlayButtonImage() {
+    let imageName = isRunning ? "pause.fill" : "play.fill"
+    playPauseButton.setImage(UIImage(systemName: imageName), for: .normal)
+  }
+  
+  func updateNextNotificationLabel(with endDate: TimeInterval) {
+    nextNotificationLabel.text = isRunning ? getHoursMinutes(from: endDate) : ""
+  }
+  
+  func updateUI() {
+    guard let task = realm.getLastTask() else {
+      isRunning = false
+      return
+    }
+    isRunning = task.endDate > Date().timeIntervalSince1970 ? true : false
+    updatePlayButtonImage()
+    updateNextNotificationLabel(with: task.endDate)
+    
+    dailyTasks = realm.fetchDailyTasks(for: Date().timeIntervalSince1970)
+  }
+  
+  func createNewTask() -> Task {
+    let currentActivity = ActivityData.activities[0] // TODO: change to choose activity from cards
+    let startDate = Date().timeIntervalSince1970
+    let endDate = startDate + duration
+    let task = Task(activity: currentActivity, isDone: false, startDate: startDate, endDate: endDate)
+    realm.save(task)
+    task.scheduleNotification()
+//    updateNextNotificationLabel(with: endDate)
+    return task
+  }
+  
+  func removeLastTask() {
+    guard let task = realm.getLastTask() else {
+      return
+    }
+    realm.removeTask(task)
+    task.removeNotification()
+    updateNextNotificationLabel(with: 0)
+  }
 }
-

@@ -16,5 +16,5 @@ func getDuration() -> TimeInterval {
 }
 
 func registerDefaultDuration() {
-  UserDefaults.standard.register(defaults: ["TimeDuration": 3600])
+  UserDefaults.standard.register(defaults: ["TimeDuration": 120])
 }

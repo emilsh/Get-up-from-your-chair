@@ -38,14 +38,14 @@ class Task: Object {
     content.sound = UNNotificationSound.default
     let duration = endDate - startDate
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: duration, repeats: true)
-    let request = UNNotificationRequest(identifier: "TaskActivity", content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: "GetUpFromYourChairTaskActivity", content: content, trigger: trigger)
     let center = UNUserNotificationCenter.current()
     center.add(request)
   }
   
   func removeNotification() {
     let center = UNUserNotificationCenter.current()
-    center.removePendingNotificationRequests(withIdentifiers: ["TaskActivity"])
+    center.removePendingNotificationRequests(withIdentifiers: ["GetUpFromYourChairTaskActivity"])
     
   }
 }

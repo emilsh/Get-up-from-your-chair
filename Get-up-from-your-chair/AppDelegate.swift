@@ -9,7 +9,7 @@ import UIKit
 import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
 
@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     center.requestAuthorization(options: [.alert, .sound]) { _, _ in
       
     }
+    center.delegate = self
 
+    print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
     return true
   }
 
@@ -38,3 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 }
 
+
+extension AppDelegate {
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    
+    print("*** Hello from AppDelegate \(response)")
+    //get ActivityViewController and invoke method createNewTask
+    let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    let activityViewController = mainStoryboard.instantiateViewController(withIdentifier: "ActivityViewController") as! ActivityViewController
+    activityViewController.createNewTask()
+  }
+}

@@ -21,12 +21,17 @@ extension ActivityViewController {
         task?.scheduleNotification()
         
         nextNotificationLabel.text = getHoursMinutes(from: endDate)
-        playPauseButton.setImage(UIImage(systemName: ""), for: .normal) // TODO: UIImage(systemName:) change argument to "pause image"
+        playPauseButton.setImage(UIImage(systemName: "stop.fill"), for: .normal)
         isRunning = !isRunning
       } else {
-        task?.removeNotification()
+        guard let task = task else {
+          fatalError("Cannot get last task")
+        }
+        realm.removeTask(task)
+        task.removeNotification()
         
-        playPauseButton.setImage(UIImage(systemName: ""), for: .normal) // TODO: UIImage(systemName:) change argument to "play image"
+        nextNotificationLabel.text = ""
+        playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         isRunning = !isRunning
       }
     }

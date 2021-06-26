@@ -9,8 +9,15 @@ import UIKit
 
 class ActivityViewController: UIViewController {
   
-  var isRunning: Bool!
-  var duration: TimeInterval!
+  var isRunning: Bool! = false
+  var duration: TimeInterval {
+    get {
+      return getDuration()
+    }
+    set{
+      storeDuration(newValue)
+    }
+  }
   var dailyTasks: [Task]!
   let realm = RealmService.shared
   
@@ -40,6 +47,7 @@ class ActivityViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
+    registerDefaultDuration()
   }
   
   private func setupUI() {

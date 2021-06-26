@@ -48,6 +48,12 @@ class RealmService {
     }
   }
   
+  func removeTask(_ task: Task) {
+    try! realm.write {
+      realm.delete(task)
+    }
+  }
+  
   func lastId() -> Int {
     guard let lastId = realm.objects(Task.self).last?.id else { return -1 }
     return lastId

@@ -9,11 +9,12 @@ import Foundation
 import RealmSwift
 
 class Activity: Object {
-  @objc dynamic var name: String
+  @objc dynamic var name: String = ""
   @objc dynamic var image: Data?
-  @objc dynamic var activityDescription: String
+  @objc dynamic var activityDescription: String = ""
   
-  init(name: String, image: Data?, description: String) {
+  convenience init(name: String, image: Data?, description: String) {
+    self.init()
     self.name = name
     self.image = image
     self.activityDescription = description

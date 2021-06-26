@@ -11,12 +11,13 @@ import RealmSwift
 
 class Task: Object {
   @objc dynamic var id: Int = -1
-  @objc dynamic var activity: Activity
-  @objc dynamic var isDone: Bool
-  @objc dynamic var startDate: TimeInterval
-  @objc dynamic var endDate: TimeInterval
+  @objc dynamic var activity: Activity?
+  @objc dynamic var isDone: Bool = false
+  @objc dynamic var startDate: TimeInterval = 0.0
+  @objc dynamic var endDate: TimeInterval = 0.0
   
-  init(activity: Activity, isDone: Bool, startDate: TimeInterval, endDate: TimeInterval) {
+  convenience init(activity: Activity, isDone: Bool, startDate: TimeInterval, endDate: TimeInterval) {
+    self.init()
     self.activity = activity
     self.isDone = isDone
     self.startDate = startDate
@@ -26,6 +27,10 @@ class Task: Object {
   
   //MARK: - Notifications
   func scheduleNotification() {
+    
+    guard let activity = activity else {
+      fatalError("No choosed activity")
+    }
     
     let content = UNMutableNotificationContent()
     content.title = "Встань уже со стула"

@@ -27,7 +27,7 @@ class ActivityTableCell: UITableViewCell {
   func configure(with task: Task) {
     
     var image = UIImage(systemName: "nosign")
-    if let imageData = task.activity.image {
+    if let imageData = task.activity?.image {
       image = UIImage(data: imageData)
     }
     activityImage.image = image

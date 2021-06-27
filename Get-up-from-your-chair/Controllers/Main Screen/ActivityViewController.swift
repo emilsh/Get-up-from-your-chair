@@ -35,6 +35,7 @@ class ActivityViewController: UIViewController {
       return formatter
     }()
 
+  @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var buttonBackgroundView: UIView!
   @IBOutlet weak var playPauseButton: UIButton!
@@ -51,6 +52,9 @@ class ActivityViewController: UIViewController {
       right:  spacing)
     return sectionInsets
   }()
+  
+  // текущая карточка активности
+  private var currentCard = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -209,9 +213,40 @@ extension ActivityViewController: UICollectionViewDataSource {
   
 }
 
+// MARK: - Current Card Index
+extension ActivityViewController {
+
+  private func getCurrentCard() -> Int {
+    let origin = collectionView.contentOffset
+    let collectionSize = collectionView.bounds.size
+    let visibleRect = CGRect(origin: origin, size: collectionSize)
+    let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+    if let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint) {
+      return visibleIndexPath.row
+    }
+    return currentCard
+  }
+}
+
 // MARK: - Collection Delegate
 extension ActivityViewController: UICollectionViewDelegate {
   
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    currentCard = getCurrentCard()
+    print("\(#function), card index: \(currentCard)")
+  }
+  
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    currentCard = getCurrentCard()
+    print("\(#function), card index: \(currentCard)")
+
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    currentCard = getCurrentCard()
+    print("\(#function), card index: \(currentCard)")
+
+  }
 }
 
 // MARK: - Flow Layout

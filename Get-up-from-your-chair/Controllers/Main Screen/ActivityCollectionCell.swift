@@ -82,7 +82,8 @@ class ActivityCollectionCell: UICollectionViewCell {
   
   func configure(with activity: Activity) {
     if let dataImage = activity.image {
-      activityImageView.image = UIImage(data: dataImage)
+      let activityImage = UIImage(data: dataImage)?.withTintColor(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
+      activityImageView.image = activityImage
     }
     
     activityNameLabel.text = activity.name

@@ -99,51 +99,57 @@ extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
         
     let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { actions in
       
-      let fifteenImage = UIImage(systemName: "goforward.15")
+      let imageConfig  = UIImage.SymbolConfiguration(textStyle: .title2)
+      let fifteenImage = UIImage(systemName: "goforward.15", withConfiguration: imageConfig)
+      let thirtyImage  = UIImage(systemName: "goforward.30", withConfiguration: imageConfig)
+      let sixtyImage   = UIImage(systemName: "goforward.60", withConfiguration: imageConfig)
+      let ninetyImage  = UIImage(systemName: "goforward.90", withConfiguration: imageConfig)
+      
       let setMinutes15 = UIAction(
         title: "Каждые 15 мин",
         image: fifteenImage,
         identifier: .none,
         state: getDuration() == Duration.fifteen.rawValue ? .on : .off)
       { action in
-        // TODO: set timeInterval
         storeDuration(Duration.fifteen.rawValue)
+        self.timeIntervalButton.setImage(fifteenImage, for: .normal)
       }
       
-      let thirtyImage = UIImage(systemName: "goforward.30")
       let setMinutes30 = UIAction(
         title: "Каждые 30 мин",
         image: thirtyImage,
         identifier: .none,
         state: getDuration() == Duration.thirty.rawValue ? .on : .off)
       { action in
-        // TODO: set timeInterval
         storeDuration(Duration.thirty.rawValue)
+        self.timeIntervalButton.setImage(thirtyImage, for: .normal)
       }
       
-      let sixtyImage = UIImage(systemName: "goforward.60")
       let setMinutes60 = UIAction(
         title: "Каждые 60 мин",
         image: sixtyImage,
         identifier: .none,
         state: getDuration() == Duration.sixty.rawValue ? .on : .off)
       { action in
-        // TODO: set timeInterval
         storeDuration(Duration.sixty.rawValue)
+        self.timeIntervalButton.setImage(sixtyImage, for: .normal)
       }
       
-      let ninetyImage = UIImage(systemName: "goforward.15")
       let setMinutes90 = UIAction(
         title: "Каждые 90 мин",
         image: ninetyImage,
         identifier: .none,
         state: getDuration() == Duration.ninety.rawValue ? .on : .off)
       { action in
-        // TODO: set timeInterval
         storeDuration(Duration.ninety.rawValue)
+        self.timeIntervalButton.setImage(ninetyImage, for: .normal)
       }
-      
-      return UIMenu(title: "", options: [], children: [setMinutes15, setMinutes30, setMinutes60, setMinutes90])
+
+      let menu = UIMenu(
+        title: "",
+        options: [],
+        children: [setMinutes15, setMinutes30, setMinutes60, setMinutes90])
+      return menu
     }
     return configuration
     

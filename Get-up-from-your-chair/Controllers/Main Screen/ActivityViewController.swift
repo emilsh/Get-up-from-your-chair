@@ -277,4 +277,12 @@ extension ActivityViewController: UICollectionViewDelegateFlowLayout {
 
     return sectionInsets.left
   }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+
+    return sectionInsets.left
+  }
 }

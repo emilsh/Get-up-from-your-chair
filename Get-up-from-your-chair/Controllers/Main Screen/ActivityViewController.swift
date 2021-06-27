@@ -94,9 +94,6 @@ extension ActivityViewController: UITableViewDataSource {
             for: indexPath) as? ActivityTableCell else {
       fatalError("custom table view cell error")
     }
-//    let image = UIImage(systemName: "figure.walk")?.pngData()
-//    let activity = Activity(name: "Отжаться 20 раз", image: image, description: "")
-//    let activity = dailyTasks[indexPath.row].activity
     let task = dailyTasks[indexPath.row]
     
     cell.configure(with: task)
@@ -126,7 +123,7 @@ extension ActivityViewController: UITableViewDelegate {
   ) -> UISwipeActionsConfiguration? {
     let task = dailyTasks[indexPath.row]
     let isDoneAction = UIContextualAction(style: .normal, title: "Сделано") { (_, _, _) in
-      // TODO: логика обновления данных по конкретной задаче
+      
       self.realm.markTaskDone(task)
       tableView.reloadRows(at: [indexPath], with: .automatic)
     }
@@ -143,7 +140,7 @@ extension ActivityViewController: UITableViewDelegate {
   ) -> UISwipeActionsConfiguration? {
     let task = dailyTasks[indexPath.row]
     let isNotDoneAction = UIContextualAction(style: .normal, title: "Пропустить") { (_, _, _) in
-      // TODO: логика обновления данных по конкретной задаче
+      
       self.realm.markTaskUnDone(task)
       tableView.reloadRows(at: [indexPath], with: .automatic)
     }
@@ -160,9 +157,10 @@ extension ActivityViewController: UITableViewDelegate {
     contextMenuConfigurationForRowAt indexPath: IndexPath,
     point: CGPoint) -> UIContextMenuConfiguration? {
     
-    let actionTitle = "Отметить пропущенным" // title = task.isDone ? "Пропустить" : "Отметить"
-    let image = UIImage(systemName: "checkmark.circle") // = task.isDone ? "circle" : "checkmark.circle"
-    let taskTitle = "Отжаться 20 раз"
+    let task = dailyTasks[indexPath.row]
+    let actionTitle = task.isDone ? "Отметить пропущенным" : "Отметить выполненным"
+    let image = UIImage(systemName: task.isDone ? "circle" : "checkmark.circle")
+    let taskTitle = task.activity?.name ?? "активность"
     
     let configuaration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { element in
       let action = UIAction(
@@ -171,7 +169,8 @@ extension ActivityViewController: UITableViewDelegate {
         identifier: .none,
         discoverabilityTitle: nil,
         attributes: [], state: .off) { action in
-        // TODO: .toggle() isDone
+        
+        self.realm.toggleState(for: task)
         tableView.reloadRows(at: [indexPath], with: .automatic)
       }
       return UIMenu.init(title: taskTitle, options: [], children: [action])

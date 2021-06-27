@@ -29,7 +29,7 @@ class RealmService {
     let dateInterval = DateInterval(start: currentDay, duration: oneDayInSeconds)
     
     let tasks = realm.objects(Task.self).filter({ task in
-      dateInterval.contains(currentDate)
+      dateInterval.contains(Date(timeIntervalSince1970: task.endDate))
     })
     for task in tasks {
       dailyTasks.append(task)

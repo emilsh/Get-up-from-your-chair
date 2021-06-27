@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     center.requestAuthorization(options: [.alert, .sound]) { _, _ in
       
     }
+//    center.delegate = self
     
     print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
     return true
@@ -38,3 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 sessionRole: connectingSceneSession.role)
   }
 }
+
+//extension AppDelegate: UNUserNotificationCenterDelegate {
+//  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//
+//    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//    let activityVC = mainStoryboard.instantiateViewController(identifier: "ActivityViewController") as! ActivityViewController
+//    let _ = activityVC.createNewTask()
+//  }
+//}

@@ -60,7 +60,8 @@ extension ActivityViewController {
   }
   
   func createNewTask() -> Task {
-    let currentActivity = ActivityData.activities[0] // TODO: change to choose activity from cards
+    let currentCardIndex = getCurrentCard()
+    let currentActivity = ActivityData.activities[currentCardIndex]
     let startDate = Date().timeIntervalSince1970
     let endDate = startDate + duration
     let task = Task(activity: currentActivity, isDone: false, startDate: startDate, endDate: endDate)

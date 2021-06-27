@@ -104,8 +104,10 @@ extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
         title: "Каждые 15 мин",
         image: fifteenImage,
         identifier: .none,
-        state: .off) { action in
+        state: getDuration() == Duration.fifteen.rawValue ? .on : .off)
+      { action in
         // TODO: set timeInterval
+        storeDuration(Duration.fifteen.rawValue)
       }
       
       let thirtyImage = UIImage(systemName: "goforward.30")
@@ -113,8 +115,10 @@ extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
         title: "Каждые 30 мин",
         image: thirtyImage,
         identifier: .none,
-        state: .on) { action in
+        state: getDuration() == Duration.thirty.rawValue ? .on : .off)
+      { action in
         // TODO: set timeInterval
+        storeDuration(Duration.thirty.rawValue)
       }
       
       let sixtyImage = UIImage(systemName: "goforward.60")
@@ -122,8 +126,10 @@ extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
         title: "Каждые 60 мин",
         image: sixtyImage,
         identifier: .none,
-        state: .off) { action in
+        state: getDuration() == Duration.sixty.rawValue ? .on : .off)
+      { action in
         // TODO: set timeInterval
+        storeDuration(Duration.sixty.rawValue)
       }
       
       let ninetyImage = UIImage(systemName: "goforward.15")
@@ -131,8 +137,10 @@ extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
         title: "Каждые 90 мин",
         image: ninetyImage,
         identifier: .none,
-        state: .off) { action in
+        state: getDuration() == Duration.ninety.rawValue ? .on : .off)
+      { action in
         // TODO: set timeInterval
+        storeDuration(Duration.ninety.rawValue)
       }
       
       return UIMenu(title: "", options: [], children: [setMinutes15, setMinutes30, setMinutes60, setMinutes90])

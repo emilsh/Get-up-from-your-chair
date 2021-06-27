@@ -26,3 +26,10 @@ func storeApplicationState(_ state: Bool) {
 func getApplicationState() -> Bool {
   UserDefaults.standard.bool(forKey: "GetUpFromYourChairAppState")
 }
+
+enum Duration: TimeInterval {
+  case fifteen = 900
+  case thirty = 1800
+  case sixty = 3600
+  case ninety = 5400
+}

@@ -216,7 +216,7 @@ extension ActivityViewController: UICollectionViewDataSource {
 // MARK: - Current Card Index
 extension ActivityViewController {
 
-  private func getCurrentCard() -> Int {
+  func getCurrentCard() -> Int {
     let origin = collectionView.contentOffset
     let collectionSize = collectionView.bounds.size
     let visibleRect = CGRect(origin: origin, size: collectionSize)

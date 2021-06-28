@@ -20,6 +20,8 @@
 		49726AD9268394D30025D382 /* Get_up_from_your_chairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726AD8268394D30025D382 /* Get_up_from_your_chairUITests.swift */; };
 		49726AE8268397CE0025D382 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726AE7268397CE0025D382 /* Activity.swift */; };
 		49726AEA268397E30025D382 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726AE9268397E30025D382 /* Task.swift */; };
+		497770B526899C41009DDE28 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497770B426899C41009DDE28 /* GraphView.swift */; };
+		497FBFB22688B65D0074F71C /* StatisticsViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497FBFB12688B65D0074F71C /* StatisticsViewController+Extension.swift */; };
 		498DA39C2687216900DD1624 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498DA39B2687216900DD1624 /* Functions.swift */; };
 		78DAC21C11C8104B650BD6F2 /* Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF998E060B71C4F7F288809 /* Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework */; };
 		A53773732685D32C009FD49A /* ActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773722685D32C009FD49A /* ActivityCollectionCell.swift */; };
@@ -67,6 +69,8 @@
 		49726ADA268394D30025D382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49726AE7268397CE0025D382 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		49726AE9268397E30025D382 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		497770B426899C41009DDE28 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		497FBFB12688B65D0074F71C /* StatisticsViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatisticsViewController+Extension.swift"; sourceTree = "<group>"; };
 		498DA39B2687216900DD1624 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		8B937E02446DD8D49A19ED89 /* Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.debug.xcconfig"; path = "Target Support Files/Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests/Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8BF998E060B71C4F7F288809 /* Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,10 +220,19 @@
 		49726AED268398850025D382 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				497770B326899C1D009DDE28 /* Statistic View */,
 				49726ABC268394CF0025D382 /* Main.storyboard */,
 				49726AC1268394D30025D382 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		497770B326899C1D009DDE28 /* Statistic View */ = {
+			isa = PBXGroup;
+			children = (
+				497770B426899C41009DDE28 /* GraphView.swift */,
+			);
+			path = "Statistic View";
 			sourceTree = "<group>";
 		};
 		6D0AAE40D5AE39C65B00EBBA /* Frameworks */ = {
@@ -244,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */,
+				497FBFB12688B65D0074F71C /* StatisticsViewController+Extension.swift */,
 			);
 			path = "Statistic screen";
 			sourceTree = "<group>";
@@ -497,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				497FBFB22688B65D0074F71C /* StatisticsViewController+Extension.swift in Sources */,
 				49726ABB268394CF0025D382 /* ActivityViewController.swift in Sources */,
 				496F84A1268655D800105EF1 /* ActivityViewController+Extension.swift in Sources */,
 				49726AB7268394CF0025D382 /* AppDelegate.swift in Sources */,
@@ -505,6 +520,7 @@
 				49726AE8268397CE0025D382 /* Activity.swift in Sources */,
 				496F849E2686412400105EF1 /* RealmService.swift in Sources */,
 				49726AB9268394CF0025D382 /* SceneDelegate.swift in Sources */,
+				497770B526899C41009DDE28 /* GraphView.swift in Sources */,
 				A53773732685D32C009FD49A /* ActivityCollectionCell.swift in Sources */,
 				A557B93526847CBE00BD5D45 /* StatisticsViewController.swift in Sources */,
 				A557B937268488A200BD5D45 /* ActivityTableCell.swift in Sources */,

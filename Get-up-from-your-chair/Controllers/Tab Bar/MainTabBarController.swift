@@ -25,7 +25,12 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController {
   
   private func createStatisticsVC() -> UIViewController {
-    let statisticsVC = StatisticsViewController()
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    guard let mainVC = storyboard.instantiateViewController(
+            withIdentifier: "StatisticsViewController") as? StatisticsViewController else {
+      fatalError("StatisticsVC doesn't exist")
+    }
+    let statisticsVC = UINavigationController(rootViewController: mainVC)
     statisticsVC.tabBarItem.title = "Статистика"
     statisticsVC.tabBarItem.image = UIImage(systemName: "waveform.path.ecg.rectangle")
     return statisticsVC

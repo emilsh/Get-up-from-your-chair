@@ -46,7 +46,7 @@ class ActivityViewController: UIViewController {
       return formatter
     }()
   
-  private var sectionInsets: UIEdgeInsets = {
+  var sectionInsets: UIEdgeInsets = {
     let spacing: CGFloat = 20
     let sectionInsets = UIEdgeInsets(
       top:    spacing,

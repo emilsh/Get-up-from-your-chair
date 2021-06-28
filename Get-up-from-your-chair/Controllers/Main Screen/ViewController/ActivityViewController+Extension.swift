@@ -17,13 +17,11 @@ extension ActivityViewController {
         let task = createNewTask()
         updatePlayButtonImage()
         updateNextNotificationLabel(with: task.endDate)
-//        playPauseLabel.text = "Продолжить"
       } else {
         isRunning = !isRunning
         storeApplicationState(isRunning)
         removeLastTask()
         updatePlayButtonImage()
-//        playPauseLabel.text = "Остановить"
       }
     }
   
@@ -31,32 +29,6 @@ extension ActivityViewController {
   func getHoursMinutes(from date: TimeInterval) -> String {
     let date = Date(timeIntervalSince1970: date)
     return formatter.string(from: date)
-  }
-  
-  func updatePlayButtonImage() {
-    let imageName = isRunning ? "pause.fill" : "play.fill"
-    playPauseLabel.text = isRunning ? "Остановить" : "Продолжить"
-    playPauseButton.setImage(UIImage(systemName: imageName), for: .normal)
-  }
-  
-  func updateNextNotificationLabel(with endDate: TimeInterval) {
-    nextNotificationLabel.text = isRunning ? getHoursMinutes(from: endDate) : "остановлены"
-    nextNotificationTextLabel.text = isRunning ? "Следующее:" : "Уведомления"
-    nextNotificationLabel.textColor = isRunning ? .black : .gray
-    nextNotificationTextLabel.textColor = isRunning ? .black : .gray
-  }
-  
-  func updateUI() {
-    guard let task = realm.getLastTask() else {
-      isRunning = false
-      return
-    }
-//    isRunning = task.endDate > Date().timeIntervalSince1970 ? true : false
-    isRunning = getApplicationState()
-    updatePlayButtonImage()
-    updateNextNotificationLabel(with: task.endDate)
-    
-//    dailyTasks = realm.fetchDailyTasks(for: Date().timeIntervalSince1970)
   }
   
   func createNewTask() -> Task {

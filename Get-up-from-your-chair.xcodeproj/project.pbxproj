@@ -21,13 +21,14 @@
 		49726AE8268397CE0025D382 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726AE7268397CE0025D382 /* Activity.swift */; };
 		49726AEA268397E30025D382 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726AE9268397E30025D382 /* Task.swift */; };
 		497770B526899C41009DDE28 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497770B426899C41009DDE28 /* GraphView.swift */; };
-		497FBFB22688B65D0074F71C /* StatisticsViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497FBFB12688B65D0074F71C /* StatisticsViewController+Extension.swift */; };
 		498DA39C2687216900DD1624 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498DA39B2687216900DD1624 /* Functions.swift */; };
 		78DAC21C11C8104B650BD6F2 /* Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF998E060B71C4F7F288809 /* Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework */; };
 		A53773732685D32C009FD49A /* ActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773722685D32C009FD49A /* ActivityCollectionCell.swift */; };
 		A557B93326847BFE00BD5D45 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557B93226847BFE00BD5D45 /* MainTabBarController.swift */; };
 		A557B93526847CBE00BD5D45 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */; };
 		A557B937268488A200BD5D45 /* ActivityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557B936268488A200BD5D45 /* ActivityTableCell.swift */; };
+		A5AE006B268A2D9E006080EA /* TableView + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AE006A268A2D9E006080EA /* TableView + extension.swift */; };
+		A5AE006E268A2E5B006080EA /* CollectionView + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AE006D268A2E5B006080EA /* CollectionView + extension.swift */; };
 		B4BE5DD2DEAE2B82842457AC /* Pods_Get_up_from_your_chairTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEDD19503A50789A76DFCB87 /* Pods_Get_up_from_your_chairTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +71,6 @@
 		49726AE7268397CE0025D382 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		49726AE9268397E30025D382 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		497770B426899C41009DDE28 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
-		497FBFB12688B65D0074F71C /* StatisticsViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatisticsViewController+Extension.swift"; sourceTree = "<group>"; };
 		498DA39B2687216900DD1624 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		8B937E02446DD8D49A19ED89 /* Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.debug.xcconfig"; path = "Target Support Files/Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests/Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8BF998E060B71C4F7F288809 /* Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +79,8 @@
 		A557B93226847BFE00BD5D45 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		A557B936268488A200BD5D45 /* ActivityTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableCell.swift; sourceTree = "<group>"; };
+		A5AE006A268A2D9E006080EA /* TableView + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView + extension.swift"; sourceTree = "<group>"; };
+		A5AE006D268A2E5B006080EA /* CollectionView + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView + extension.swift"; sourceTree = "<group>"; };
 		C29D476F7EA12A3D69624A60 /* Pods-Get-up-from-your-chair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-up-from-your-chair.debug.xcconfig"; path = "Target Support Files/Pods-Get-up-from-your-chair/Pods-Get-up-from-your-chair.debug.xcconfig"; sourceTree = "<group>"; };
 		CAEE05146EEA76A871640BE0 /* Pods-Get-up-from-your-chairTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-up-from-your-chairTests.debug.xcconfig"; path = "Target Support Files/Pods-Get-up-from-your-chairTests/Pods-Get-up-from-your-chairTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DCE1747B193DD87CF56EAB21 /* Pods_Get_up_from_your_chair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Get_up_from_your_chair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,7 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */,
-				497FBFB12688B65D0074F71C /* StatisticsViewController+Extension.swift */,
 			);
 			path = "Statistic screen";
 			sourceTree = "<group>";
@@ -265,12 +266,38 @@
 		A53773762685D9C4009FD49A /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
-				49726ABA268394CF0025D382 /* ActivityViewController.swift */,
-				A557B936268488A200BD5D45 /* ActivityTableCell.swift */,
-				A53773722685D32C009FD49A /* ActivityCollectionCell.swift */,
-				496F84A0268655D800105EF1 /* ActivityViewController+Extension.swift */,
+				A5AE006F268A2F6C006080EA /* ViewController */,
+				A5AE0069268A2D7F006080EA /* Table view */,
+				A5AE006C268A2E21006080EA /* Collection view */,
 			);
 			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		A5AE0069268A2D7F006080EA /* Table view */ = {
+			isa = PBXGroup;
+			children = (
+				A557B936268488A200BD5D45 /* ActivityTableCell.swift */,
+				A5AE006A268A2D9E006080EA /* TableView + extension.swift */,
+			);
+			path = "Table view";
+			sourceTree = "<group>";
+		};
+		A5AE006C268A2E21006080EA /* Collection view */ = {
+			isa = PBXGroup;
+			children = (
+				A53773722685D32C009FD49A /* ActivityCollectionCell.swift */,
+				A5AE006D268A2E5B006080EA /* CollectionView + extension.swift */,
+			);
+			path = "Collection view";
+			sourceTree = "<group>";
+		};
+		A5AE006F268A2F6C006080EA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				49726ABA268394CF0025D382 /* ActivityViewController.swift */,
+				496F84A0268655D800105EF1 /* ActivityViewController+Extension.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,16 +538,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				497FBFB22688B65D0074F71C /* StatisticsViewController+Extension.swift in Sources */,
 				49726ABB268394CF0025D382 /* ActivityViewController.swift in Sources */,
 				496F84A1268655D800105EF1 /* ActivityViewController+Extension.swift in Sources */,
 				49726AB7268394CF0025D382 /* AppDelegate.swift in Sources */,
+				A5AE006E268A2E5B006080EA /* CollectionView + extension.swift in Sources */,
 				A557B93326847BFE00BD5D45 /* MainTabBarController.swift in Sources */,
 				49726AEA268397E30025D382 /* Task.swift in Sources */,
 				49726AE8268397CE0025D382 /* Activity.swift in Sources */,
 				496F849E2686412400105EF1 /* RealmService.swift in Sources */,
 				49726AB9268394CF0025D382 /* SceneDelegate.swift in Sources */,
 				497770B526899C41009DDE28 /* GraphView.swift in Sources */,
+				A5AE006B268A2D9E006080EA /* TableView + extension.swift in Sources */,
 				A53773732685D32C009FD49A /* ActivityCollectionCell.swift in Sources */,
 				A557B93526847CBE00BD5D45 /* StatisticsViewController.swift in Sources */,
 				A557B937268488A200BD5D45 /* ActivityTableCell.swift in Sources */,

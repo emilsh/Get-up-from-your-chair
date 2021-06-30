@@ -17,17 +17,30 @@ class StatisticsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    view.backgroundColor = .white
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    graphView.activities = getActivitiesForWeek()
     setupGraphDisplay()
+  }
+  
+  func getActivitiesForWeek() -> [Int] {
+    var weeklyActivities: [Int] = []
+    for day in DaysAgo.allCases {
+      let count = RealmService.shared.getCountOfActivities(for: day.rawValue)
+      weeklyActivities.append(count)
+    }
+    return weeklyActivities
   }
   
   func setupGraphDisplay() {
     let maxDayIndex = stackView.arrangedSubviews.count - 1
    
     graphView.setNeedsDisplay()
-    maxLabel.text = "\(graphView.graphPoints.max() ?? 0)"
+    maxLabel.text = "\(graphView.activities.max() ?? 0)"
     
-    let average = graphView.graphPoints.reduce(0,+) / graphView.graphPoints.count
+    let average = graphView.activities.reduce(0,+) / graphView.activities.count
     averageActivities.text = "\(average)"
     
     let today = Date()

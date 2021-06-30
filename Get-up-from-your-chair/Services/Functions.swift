@@ -41,3 +41,13 @@ enum Duration: TimeInterval {
   case sixty = 3600
   case ninety = 5400
 }
+
+enum DaysAgo: TimeInterval, CaseIterable {
+  case sevenDays = 518400
+  case sixDays = 432000
+  case fiveDays = 345600
+  case fourDays = 259200
+  case threeDays = 172800
+  case twoDays = 86400
+  case oneDay = 0
+}

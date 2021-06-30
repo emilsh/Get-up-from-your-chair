@@ -66,6 +66,13 @@ class RealmService {
     }
   }
   
+  func getCountOfActivities(for day: TimeInterval) -> Int {
+    let date = Date().timeIntervalSince1970 - day
+    let tasks = fetchDailyTasks(for: date)
+    return tasks.filter { $0.isDone }.count
+    
+  }
+  
   func removeTask(_ task: Task) {
     try! realm.write {
       realm.delete(task)

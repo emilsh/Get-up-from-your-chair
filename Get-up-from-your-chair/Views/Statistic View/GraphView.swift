@@ -19,7 +19,7 @@ private enum Constants {
 @IBDesignable
 class GraphView: UIView {
   
-  var graphPoints = [4, 2, 6, 4, 5, 8, 3]
+  var activities = [4, 2, 6, 4, 5, 8, 3]
     
   @IBInspectable var startColor: UIColor = UIColor(red: 250/255, green: 233/255, blue: 222/250, alpha: 1)
   @IBInspectable var endColor: UIColor = UIColor(red: 252/255, green: 79/255, blue: 8/255, alpha: 1)
@@ -51,13 +51,13 @@ class GraphView: UIView {
     let margin = Constants.margin
     let graphWidth = width - margin * 2 - 4
     let columnXPoint = { (column: Int) -> CGFloat in
-      let spacing = graphWidth / CGFloat(self.graphPoints.count - 1)
+      let spacing = graphWidth / CGFloat(self.activities.count - 1)
       return CGFloat(column) * spacing + margin + 2
     }
     let topBorder = Constants.topBorder
     let bottomBorder = Constants.bottomBorder
     let graphHeight = height - topBorder - bottomBorder
-    guard let maxValue = graphPoints.max() else { return }
+    guard let maxValue = activities.max() else { return }
     let columnYPoint = { (graphPoint: Int) -> CGFloat in
       let yPoint = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
       return graphHeight + topBorder - yPoint
@@ -67,10 +67,10 @@ class GraphView: UIView {
     UIColor.white.setStroke()
     
     let graphPath = UIBezierPath()
-    graphPath.move(to: CGPoint(x: columnXPoint(0), y: columnYPoint(graphPoints[0])))
+    graphPath.move(to: CGPoint(x: columnXPoint(0), y: columnYPoint(activities[0])))
     
-    for i in 1..<graphPoints.count {
-      let nextPoint = CGPoint(x: columnXPoint(i), y: columnYPoint(graphPoints[i]))
+    for i in 1..<activities.count {
+      let nextPoint = CGPoint(x: columnXPoint(i), y: columnYPoint(activities[i]))
       graphPath.addLine(to: nextPoint)
     }
     
@@ -80,7 +80,7 @@ class GraphView: UIView {
       return
     }
     
-    clippingPath.addLine(to: CGPoint(x: columnXPoint(graphPoints.count - 1), y: height))
+    clippingPath.addLine(to: CGPoint(x: columnXPoint(activities.count - 1), y: height))
     clippingPath.addLine(to: CGPoint(x: columnXPoint(0), y: height))
     clippingPath.close()
     clippingPath.addClip()
@@ -95,8 +95,8 @@ class GraphView: UIView {
     graphPath.lineWidth = 2.0
     graphPath.stroke()
     
-    for i in 0..<graphPoints.count {
-      var point = CGPoint(x: columnXPoint(i), y: columnYPoint(graphPoints[i]))
+    for i in 0..<activities.count {
+      var point = CGPoint(x: columnXPoint(i), y: columnYPoint(activities[i]))
       point.x -= Constants.circleDiameter / 2
       point.y -= Constants.circleDiameter / 2
       

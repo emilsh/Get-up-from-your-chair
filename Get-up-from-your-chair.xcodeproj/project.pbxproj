@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		223D758D9F17173308ED1352 /* Pods_Get_up_from_your_chair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE1747B193DD87CF56EAB21 /* Pods_Get_up_from_your_chair.framework */; };
+		496EB559268C63D600880D17 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496EB558268C63D600880D17 /* DataModel.swift */; };
 		496F849E2686412400105EF1 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496F849D2686412400105EF1 /* RealmService.swift */; };
 		496F84A1268655D800105EF1 /* ActivityViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496F84A0268655D800105EF1 /* ActivityViewController+Extension.swift */; };
 		49726AB7268394CF0025D382 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726AB6268394CF0025D382 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		241EF6E7020155EF55AFE448 /* Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.release.xcconfig"; path = "Target Support Files/Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests/Pods-Get-up-from-your-chair-Get-up-from-your-chairUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3DA1569BA270CA8CABC1ED75 /* Pods-Get-up-from-your-chair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-up-from-your-chair.release.xcconfig"; path = "Target Support Files/Pods-Get-up-from-your-chair/Pods-Get-up-from-your-chair.release.xcconfig"; sourceTree = "<group>"; };
+		496EB558268C63D600880D17 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		496F849D2686412400105EF1 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		496F84A0268655D800105EF1 /* ActivityViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityViewController+Extension.swift"; sourceTree = "<group>"; };
 		49726AB3268394CF0025D382 /* Get-up-from-your-chair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get-up-from-your-chair.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +198,7 @@
 			children = (
 				49726AE7268397CE0025D382 /* Activity.swift */,
 				49726AE9268397E30025D382 /* Task.swift */,
+				496EB558268C63D600880D17 /* DataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				49726AB7268394CF0025D382 /* AppDelegate.swift in Sources */,
 				A5AE006E268A2E5B006080EA /* CollectionView + extension.swift in Sources */,
 				A557B93326847BFE00BD5D45 /* MainTabBarController.swift in Sources */,
+				496EB559268C63D600880D17 /* DataModel.swift in Sources */,
 				49726AEA268397E30025D382 /* Task.swift in Sources */,
 				49726AE8268397CE0025D382 /* Activity.swift in Sources */,
 				496F849E2686412400105EF1 /* RealmService.swift in Sources */,

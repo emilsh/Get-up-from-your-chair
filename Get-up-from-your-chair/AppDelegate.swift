@@ -12,7 +12,6 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -22,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     center.requestAuthorization(options: [.alert, .sound]) { _, _ in
       
     }
-//    center.delegate = self
-    
+    center.delegate = self
+   
     print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
     return true
   }
@@ -38,13 +37,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return UISceneConfiguration(name: "Default Configuration",
                                 sessionRole: connectingSceneSession.role)
   }
+  
+  func applicationWillTerminate(_ application: UIApplication) {
+    
+  }
 }
 
-//extension AppDelegate: UNUserNotificationCenterDelegate {
-//  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//
-//    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//    let activityVC = mainStoryboard.instantiateViewController(identifier: "ActivityViewController") as! ActivityViewController
-//    let _ = activityVC.createNewTask()
-//  }
-//}
+extension AppDelegate: UNUserNotificationCenterDelegate {
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+
+    let cardIndex = getCurrentCardIndex()
+    let task = DataModel.createTask(with: cardIndex)
+    RealmService.shared.save(task)
+
+  }
+}

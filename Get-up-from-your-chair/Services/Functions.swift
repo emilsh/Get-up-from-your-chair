@@ -27,6 +27,14 @@ func getApplicationState() -> Bool {
   UserDefaults.standard.bool(forKey: "GetUpFromYourChairAppState")
 }
 
+func getCurrentCardIndex() -> Int {
+  UserDefaults.standard.integer(forKey: "GetUpFromYourChairCurrentCard")
+}
+
+func storeCurrentCardIndex(_ index: Int) {
+  UserDefaults.standard.setValue(index, forKey: "GetUpFromYourChairCurrentCard")
+}
+
 enum Duration: TimeInterval {
   case fifteen = 900
   case thirty = 1800

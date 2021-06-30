@@ -21,12 +21,12 @@ class ActivityViewController: UIViewController {
   var currentCard = 0
   
   var isRunning: Bool! = false
-  var duration: TimeInterval {
+  var duration: TimeInterval? {
     get {
       return getDuration()
     }
     set{
-      storeDuration(newValue)
+      storeDuration(newValue ?? 0)
     }
   }
   var dailyTasks: [Task]! {
@@ -59,14 +59,15 @@ class ActivityViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
+    updateUI()
     registerDefaultDuration()
-    
     UNUserNotificationCenter.current().delegate = self
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    updateUI()
+
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    let currentCardIndex = getCurrentCard()
+    storeCurrentCardIndex(currentCardIndex)
   }
   
   private func setupUI() {

@@ -32,6 +32,7 @@ extension MainTabBarController {
     }
     let statisticsVC = UINavigationController(rootViewController: mainVC)
     statisticsVC.tabBarItem.title = "Статистика"
+    statisticsVC.navigationBar.topItem?.title = " Статистика"
     statisticsVC.tabBarItem.image = UIImage(systemName: "waveform.path.ecg.rectangle")
     return statisticsVC
   }

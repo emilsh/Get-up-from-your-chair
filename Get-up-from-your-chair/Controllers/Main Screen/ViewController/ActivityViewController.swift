@@ -71,7 +71,7 @@ class ActivityViewController: UIViewController {
   }
   
   private func setupUI() {
-    buttonBackgroundView.backgroundColor = .white
+    buttonBackgroundView.backgroundColor = UIColor(named: "inverse")
     buttonBackgroundView.layer.shadowColor = UIColor.black.cgColor
     buttonBackgroundView.layer.shadowOpacity = 0.5
     buttonBackgroundView.layer.shadowOffset = .zero
@@ -85,14 +85,16 @@ class ActivityViewController: UIViewController {
   func updatePlayButtonImage() {
     let imageName = isRunning ? "pause.fill" : "play.fill"
     playPauseLabel.text = isRunning ? "Остановить" : "Продолжить"
+    playPauseLabel.textColor = .label
     playPauseButton.setImage(UIImage(systemName: imageName), for: .normal)
+    playPauseButton.tintColor = .label
   }
   
   func updateNextNotificationLabel(with endDate: TimeInterval) {
     nextNotificationLabel.text = isRunning ? getHoursMinutes(from: endDate) : "остановлены"
     nextNotificationTextLabel.text = isRunning ? "Следующее:" : "Уведомления"
-    nextNotificationLabel.textColor = isRunning ? .black : .gray
-    nextNotificationTextLabel.textColor = isRunning ? .black : .gray
+    nextNotificationLabel.textColor = isRunning ? .label : .gray
+    nextNotificationTextLabel.textColor = isRunning ? .label : .gray
   }
   
   func updateUI() {

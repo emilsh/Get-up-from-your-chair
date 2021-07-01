@@ -30,7 +30,7 @@ class ActivityTableCell: UITableViewCell {
     if let imageData = task.activity?.image {
       image = UIImage(data: imageData)
     }
-    activityImage.image = image
+    activityImage.image = image?.withTintColor(.label)
 
     if task.isDone {
       doneImage.image = UIImage(systemName: "checkmark.circle")

@@ -62,6 +62,10 @@ class ActivityCollectionCell: UICollectionViewCell {
     activityDescriptionLabel.text = activity.activityDescription
   }
   
+  func reloadTableView() {
+    let collectionView = self.superview as? UICollectionView
+    collectionView?.reloadData()
+  }
 }
 
 extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
@@ -85,6 +89,7 @@ extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
       { action in
         storeDuration(Duration.fifteen.rawValue)
         self.timeIntervalButton.setImage(fifteenImage, for: .normal)
+        self.reloadTableView()
       }
       
       let setMinutes30 = UIAction(
@@ -95,6 +100,7 @@ extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
       { action in
         storeDuration(Duration.thirty.rawValue)
         self.timeIntervalButton.setImage(thirtyImage, for: .normal)
+        self.reloadTableView()
       }
       
       let setMinutes60 = UIAction(
@@ -105,6 +111,7 @@ extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
       { action in
         storeDuration(Duration.sixty.rawValue)
         self.timeIntervalButton.setImage(sixtyImage, for: .normal)
+        self.reloadTableView()
       }
       
       let setMinutes90 = UIAction(
@@ -115,6 +122,7 @@ extension ActivityCollectionCell: UIContextMenuInteractionDelegate {
       { action in
         storeDuration(Duration.ninety.rawValue)
         self.timeIntervalButton.setImage(ninetyImage, for: .normal)
+        self.reloadTableView()
       }
 
       let menu = UIMenu(

@@ -174,7 +174,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal">
-                                                        <imageReference key="image" image="goforward.30" catalog="system" symbolScale="large"/>
+                                                        <imageReference key="image" image="goforward.60" catalog="system" symbolScale="large"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="timeIntervalButtonPressed" destination="c7M-Xb-9Vr" eventType="touchUpInside" id="WdM-DG-HP3"/>
@@ -409,7 +409,7 @@
     <resources>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="figure.walk" catalog="system" width="95" height="128"/>
-        <image name="goforward.30" catalog="system" width="121" height="128"/>
+        <image name="goforward.60" catalog="system" width="121" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

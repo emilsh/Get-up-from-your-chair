@@ -25,6 +25,7 @@
 		498DA39C2687216900DD1624 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498DA39B2687216900DD1624 /* Functions.swift */; };
 		78DAC21C11C8104B650BD6F2 /* Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF998E060B71C4F7F288809 /* Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework */; };
 		A53773732685D32C009FD49A /* ActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53773722685D32C009FD49A /* ActivityCollectionCell.swift */; };
+		A5440040268DEF69001BF405 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544003F268DEF69001BF405 /* GradientView.swift */; };
 		A557B93326847BFE00BD5D45 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557B93226847BFE00BD5D45 /* MainTabBarController.swift */; };
 		A557B93526847CBE00BD5D45 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */; };
 		A557B937268488A200BD5D45 /* ActivityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557B936268488A200BD5D45 /* ActivityTableCell.swift */; };
@@ -78,6 +79,7 @@
 		8BF998E060B71C4F7F288809 /* Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Get_up_from_your_chair_Get_up_from_your_chairUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D3D70806FFB0E3D648020D /* Pods-Get-up-from-your-chairTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-up-from-your-chairTests.release.xcconfig"; path = "Target Support Files/Pods-Get-up-from-your-chairTests/Pods-Get-up-from-your-chairTests.release.xcconfig"; sourceTree = "<group>"; };
 		A53773722685D32C009FD49A /* ActivityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionCell.swift; sourceTree = "<group>"; };
+		A544003F268DEF69001BF405 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		A557B93226847BFE00BD5D45 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A557B93426847CBE00BD5D45 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		A557B936268488A200BD5D45 /* ActivityTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableCell.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		49726AED268398850025D382 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A544003F268DEF69001BF405 /* GradientView.swift */,
 				497770B326899C1D009DDE28 /* Statistic View */,
 				49726ABC268394CF0025D382 /* Main.storyboard */,
 				49726AC1268394D30025D382 /* LaunchScreen.storyboard */,
@@ -546,6 +549,7 @@
 				49726AB7268394CF0025D382 /* AppDelegate.swift in Sources */,
 				A5AE006E268A2E5B006080EA /* CollectionView + extension.swift in Sources */,
 				A557B93326847BFE00BD5D45 /* MainTabBarController.swift in Sources */,
+				A5440040268DEF69001BF405 /* GradientView.swift in Sources */,
 				496EB559268C63D600880D17 /* DataModel.swift in Sources */,
 				49726AEA268397E30025D382 /* Task.swift in Sources */,
 				49726AE8268397CE0025D382 /* Activity.swift in Sources */,
